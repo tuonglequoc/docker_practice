@@ -1,0 +1,22 @@
+# Base image to build this image from                                                                                                                                                                         
+FROM ubuntu:18.04
+                                                                                                                                                                                                              
+# update ubuntu software repository cache & install python
+RUN apt-get update
+RUN apt-get install -y python3 python3-pip
+
+# install django
+RUN python3 -m pip install django
+
+# create the django project
+RUN django-admin startproject dk_train
+WORKDIR dk_train
+
+# designate port for our container to be published*
+EXPOSE 2222
+
+# modify settings to allow access
+RUN echo ALLOWED_HOSTS = [\"*\"] >> dk_train/settings.py
+
+# Default command when running this image # CMD or ENTRYPOINT will be clarified later
+CMD ["python3","manage.py", "runserver", "0:2222"]
