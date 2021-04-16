@@ -6,7 +6,7 @@ $ docker build -t \<ImageName:Version\> -f \<FolerContainsDockerfile\>
 
 Build docker manually by docker commit
 -----------
-$ docker run -it <UbuntuImage> bash
+$ docker run -it \<UbuntuImage\> bash
 
 $ docker commit --change 'CMD["python3", "manage.py", "runserver"]' --change 'EXPOSE 2222' \<ContainerID\> \<ImageName:Version\>
 
