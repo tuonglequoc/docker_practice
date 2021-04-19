@@ -1,12 +1,10 @@
 # Docker Basic
 
 ## Build image by Dockerfile
------------
 ```
 $ docker build -t \<ImageName:Version\> -f \<FolerContainsDockerfile\>
 ```
 ## Build docker manually by docker commit
------------
 ```
 $ docker run -it \<UbuntuImage\> bash
 ```
